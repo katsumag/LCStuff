@@ -3,7 +3,7 @@ class Tester(private val objectt: Any) {
     @OptIn(ExperimentalStdlibApi::class)
     private val functionName = objectt.javaClass.simpleName.split("Solution")[0].replaceFirstChar { it.toLowerCase() }
 
-    fun runTest(vararg testData: TestData) {
+    fun runTest(vararg testData: Any) {
 
         val method = objectt.javaClass.declaredMethods.first { it.name == functionName }
         val paramTypes = method.parameterTypes
