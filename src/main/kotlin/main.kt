@@ -1,16 +1,22 @@
-fun main(args: Array<String>) {
-    println("Hello World!")
+import twosum.TwoSumSolution
 
-    val passing = test {
-        toTest(TwoSumSolution())
-        println("Object loaded")
+fun main(args: Array<String>) {
+
+    var passing = test {
+        toTest = TwoSumSolution()
+
         testData(intArrayOf(2, 7, 11, 15))
         testData(9)
     }.run()
 
-    println("Passing? $passing")
+    var out: Any
+
+    if (passing is Array<*>) {
+        out = passing.contentToString()
+    } else { out = passing }
+
+    println("Passing? $out")
 
     //TwoSumSolution().twoSum(intArrayOf(2, 7, 11, 15), 9)
 }
-
 
